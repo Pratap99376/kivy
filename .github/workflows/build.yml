@@ -44,7 +44,11 @@ jobs:
         run: |
           echo "::set-output name=date::$(/bin/date -u "+%Y%m%d")"
         shell: bash
+      - name: Update
 
+        uses: sudo apt-get update -y
+      - name: Install dpkg
+        uses: sudo apt-get install -y dpkg
       - name: Cache Buildozer global directory
         uses: actions/cache@v2
         with:
