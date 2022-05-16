@@ -1,12 +1,13 @@
-import kivy
-
-from kivy.app import App
-from kivy.uix.button import Button
 
 
-class MyApp(App):
+from kivymd.app import MDApp
+from kivymd.uix.button import MDRaisedButton
+
+
+class MyApp(MDApp):
     def build(self):
-        return Button(text='Hello World')
+        return MDRaisedButton(text='Hello World',pos_hint:{"center_x".5,"center_y":.5})
+
 
 
 if __name__ == '__main__':
