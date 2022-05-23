@@ -7,6 +7,7 @@ from kivy.core.text import LabelBase
 from kivy.clock import Clock
 from kivy.uix.camera import Camera
 from kivy.utils import platform
+from kivy.uix.image import Image
 from android.permissions import request_permissions, Permission
 
 import requests
@@ -21,7 +22,7 @@ request_permissions([
 class ClassContent(BoxLayout):
     def __init__(self,**kwargs):
         super(ClassContent,self).__init__(**kwargs)
-
+        
 class HomeScreen(Screen):
     def __init__(self, **kwargs):
         super(HomeScreen, self).__init__(**kwargs)
@@ -34,6 +35,8 @@ class HomeScreen(Screen):
         self.camera.resolution = (640,480)
         print(dir(self.camera))
         self.camera.allow_stretch = True
+        
+
 
     def show_class_dialog(self):
         if not self.class_dialog:
@@ -54,6 +57,8 @@ class HomeScreen(Screen):
 
     def Camera_Click(self):
         self.camera.export_to_png("current.jpg")
+        self.add_widget(Image(source="current.jpg"))
+        #self.children[0].source = 'current.jpg'
         #self.cam = cv2.VideoCapture("https://192.168.43.1:8080/video")
         #result, frame = self.cam.read()
         #if result:
