@@ -15,7 +15,6 @@ request_permissions([
     Permission.READ_EXTERNAL_STORAGE
 ])
 
-import requests
 
 class ClassContent(BoxLayout):
     def __init__(self,**kwargs):
@@ -43,13 +42,13 @@ class HomeScreen(Screen):
         self.class_dialog.title_font = "nevis"
         self.class_dialog.open()
 
-    def class_dialog_close(self, *args,**kwargs):
-        #self.Camera_Click()
-        self.password = kwargs["password"]
-        result = requests.get("https://python7978.000webhostapp.com/server.php?code=1&number=" + kwargs["password"])
-        print("result"+result.text)
-        Clock.schedule_interval(self.chk_req,5)
-        self.class_dialog.dismiss(force=True)
+    #def class_dialog_close(self, *args,**kwargs):
+#        #self.Camera_Click()
+#        self.password = kwargs["password"]
+#        result = requests.get("https://python7978.000webhostapp.com/server.php?code=1&number=" + kwargs["password"])
+#        print("result"+result.text)
+#        Clock.schedule_interval(self.chk_req,5)
+#        self.class_dialog.dismiss(force=True)
 
     def Camera_Click(self):
         self.camera.export_to_png("current.jpg")
@@ -66,21 +65,21 @@ class HomeScreen(Screen):
         #     # print(byteframe)
         # return byteframe
 
-    def chk_req(self,dt):
-        req = requests.get("https://python7978.000webhostapp.com/check.php?index=" + str(self.count) + "&pass=" + self.password);
-        if req.text == "2":
-            print("Uploading")
-            url = 'https://python7978.000webhostapp.com/upload.php?pass='+self.password+"&index="+str(self.count)
-            verify = self.Camera_Click()
-            files = {'image': open("current.jpg","rb")}
+    #def chk_req(self,dt):
+#        req = requests.get("https://python7978.000webhostapp.com/check.php?index=" + str(self.count) + "&pass=" + self.password);
+#        if req.text == "2":
+#            print("Uploading")
+#            url = 'https://python7978.000webhostapp.com/upload.php?pass='+self.password+"&index="+str(self.count)
+#            verify = self.Camera_Click()
+#            files = {'image': open("current.jpg","rb")}
 
-                # files = {'image': open('image.png', 'rb')}
-            print(files)
-            post = requests.post(url, files=files)
-            print(post.text)
-            if(post.text == "1"):
-                self.count += 1
-                print("H")
+#                # files = {'image': open('image.png', 'rb')}
+#            print(files)
+#            post = requests.post(url, files=files)
+#            print(post.text)
+#            if(post.text == "1"):
+#                self.count += 1
+#                print("H")
 
 class TrackerPhoneApp(App):
     def build(self):
