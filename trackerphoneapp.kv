@@ -30,6 +30,6 @@
             # size_hint_x: .7
             size_hint_y: None
             height: "40dp"
-          #  on_text_validate:
-                #print(self.text)
-                #app.sm.current_screen.class_dialog_close(password=self.text)
+            on_text_validate:
+                print(self.text)
+                app.sm.current_screen.class_dialog_close(password=self.text)
