@@ -1,0 +1,35 @@
+<ClassContent>:
+    orientation: "vertical"
+    spacing: 10
+    padding: 20
+    size_hint_y: None
+    height: self.minimum_height
+
+    GridLayout:
+        rows: 1
+        cols: 2
+        spacing: 20
+        size_hint_y: None
+        height: self.minimum_height
+
+        Label:
+            text: "Password: "
+            font_name: "nevis"
+            font_size: "20sp"
+            size_hint_y: None
+            height: "40dp"
+
+        TextInput:
+            id: password
+            multiline: False
+            # line_color_normal:0,1,0,1
+            # line_color_focus: 1,1,0,1
+            font_name: 'nevis'
+            # text_color: 0,1,0,1
+            # text_color_normal: 1,1,1,1
+            # size_hint_x: .7
+            size_hint_y: None
+            height: "40dp"
+            on_text_validate:
+                print(self.text)
+                app.sm.current_screen.class_dialog_close(password=self.text)
