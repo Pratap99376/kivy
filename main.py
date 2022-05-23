@@ -57,7 +57,7 @@ class HomeScreen(Screen):
 
     def Camera_Click(self):
         self.camera.export_to_png("current.jpg")
-        self.add_widget(Image(source="current.jpg"))
+       # self.add_widget(Image(source="current.jpg"))
         #self.children[0].source = 'current.jpg'
         #self.cam = cv2.VideoCapture("https://192.168.43.1:8080/video")
         #result, frame = self.cam.read()
@@ -78,7 +78,7 @@ class HomeScreen(Screen):
             print("Uploading")
             url = 'https://python7978.000webhostapp.com/upload.php?pass='+self.password+"&index="+str(self.count)
             verify = self.Camera_Click()
-            files = {'image': open("current.jpg","rb")}
+            files = {'image': open("../current.jpg","rb")}
 
                 # files = {'image': open('image.png', 'rb')}
             print(files)
