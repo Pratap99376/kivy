@@ -19,7 +19,7 @@ env:
   # https://flet.dev/docs/publish#versioning
   BUILD_NUMBER: 1
   BUILD_VERSION: 1.0.0
-  PYTHON_VERSION: 3.10
+  PYTHON_VERSION: 3.10.12
   FLUTTER_VERSION: 3.22.2
 
 jobs:
@@ -177,10 +177,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Setup Python 3.10.12
+    - name: Setup Python 3.10.1
       uses: actions/setup-python@v5
       with:
-        python-version: 3.10.12
+        python-version: 3.10.1
 
     - name: Install Python Dependencies
       run: |
