@@ -1,2 +1,2 @@
 flet
-numpy
+flet_web
