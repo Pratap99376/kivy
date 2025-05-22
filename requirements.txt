@@ -1,2 +1,2 @@
 flet
-pydantic_core
+mediapipe
